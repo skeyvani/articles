@@ -1,0 +1,31 @@
+---
+title: "Exploring the Power of R"
+author: "Siamak Keyvani"
+date: "September 16, 2014"
+output: html_document
+---
+Exploring the Power of R
+========================
+First I'm going to load ggplot2 and RColorBrewer packages. Then I'll load the  diamonds dataset which contains 53,940 rows of data about round cut diamonds including prices.
+
+```{r}
+library("ggplot2")
+library("RColorBrewer")
+data(diamonds)
+```
+
+Here's some info about the dataset
+
+```{r}
+str(diamonds)
+head(diamonds)
+```
+
+As you can see there are 10 variables for each row. You can use `?diamonds` to learn more about this dataset.
+
+Now I'll use a basic `qplot` function to create an amazing visualization that plots the price vs carats and uses colors to display different cut qualities.
+
+```{r fig.width=12}
+qplot(data = diamonds, x = carat, y = price, color = cut) + scale_color_brewer(palette = "Set3")
+```
+
